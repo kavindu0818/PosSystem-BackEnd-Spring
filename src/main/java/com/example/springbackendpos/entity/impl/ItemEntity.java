@@ -1,5 +1,6 @@
 package com.example.springbackendpos.entity.impl;
 
+import com.example.springbackendpos.entity.SuperEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class ItemEntity {
+public class ItemEntity implements SuperEntity {
 
     @Id
     private String code;
