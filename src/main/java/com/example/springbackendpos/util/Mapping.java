@@ -1,8 +1,10 @@
 package com.example.springbackendpos.util;
 import com.example.springbackendpos.dto.impl.CustomerDto;
 import com.example.springbackendpos.dto.impl.ItemDto;
+import com.example.springbackendpos.dto.impl.OrderDto;
 import com.example.springbackendpos.entity.impl.CustomerEntity;
 import com.example.springbackendpos.entity.impl.ItemEntity;
+import com.example.springbackendpos.entity.impl.OrderEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,14 @@ public class Mapping {
 
     public ItemDto toItemDto(ItemEntity itemEntity){
         return modelMapper.map(itemEntity, ItemDto.class);
+    }
+
+    public OrderEntity toOrderEntity(OrderDto orderDto){
+        return modelMapper.map(orderDto, OrderEntity.class);
+    }
+
+    public OrderDto toOrderDto(OrderEntity orderEntity){
+        return modelMapper.map(orderEntity, OrderDto.class);
     }
 
     public List<CustomerDto> asCustomerDTOList(List<CustomerEntity> customerEntities){
