@@ -14,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/item")
 public class ItemController {
@@ -37,6 +39,11 @@ public class ItemController {
     @GetMapping(value = "/{itemCode}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ItemStatus getSelectedItem(@PathVariable("itemCode") String iCode) {
         return itemService.getItem(iCode);
+    }
+
+    @GetMapping
+    public List<ItemDto> getAllCustomer(){
+        return itemService.getAll();
     }
 
     @PutMapping(value = "/{code}")

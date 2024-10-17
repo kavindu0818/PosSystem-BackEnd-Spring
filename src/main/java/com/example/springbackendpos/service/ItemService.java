@@ -5,6 +5,8 @@ import com.example.springbackendpos.dto.impl.ItemDto;
 import com.example.springbackendpos.exception.CustomerNotFoundException;
 import com.example.springbackendpos.exception.ItemNotFoundException;
 
+import java.util.List;
+
 public interface ItemService {
     void saveItem(ItemDto itemDto);
 
@@ -13,4 +15,6 @@ public interface ItemService {
     void deleteItem(String id) throws CustomerNotFoundException, ItemNotFoundException;
 
     ItemStatus getItem(String code);
+
+    List<ItemDto> getAll();
 }

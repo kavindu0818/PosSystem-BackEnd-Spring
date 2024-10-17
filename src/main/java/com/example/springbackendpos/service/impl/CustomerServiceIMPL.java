@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -50,6 +51,13 @@ public class CustomerServiceIMPL implements CustomerService {
             customerDao.deleteById(id);
         }
     }
+
+   @Override
+
+   public List<CustomerDto> getAll() {
+       return mapping.asCustomerDTOList(customerDao.findAll());
+   }
+
 
 
 

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -64,5 +65,10 @@ public class ItemServiceIMPL implements ItemService {
         }else {
             return (ItemStatus) new SelectedCustomerAndItemErrorStatus(2, "User with id " + icode + " not found");
         }
+    }
+
+    @Override
+    public List<ItemDto> getAll() {
+        return mapping.asItemDTOList(itemDao.findAll());
     }
 }

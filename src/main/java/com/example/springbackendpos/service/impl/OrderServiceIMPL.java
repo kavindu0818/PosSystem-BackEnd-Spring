@@ -1,7 +1,6 @@
 package com.example.springbackendpos.service.impl;
 
 import com.example.springbackendpos.dao.OrderDao;
-import com.example.springbackendpos.dto.impl.ItemDto;
 import com.example.springbackendpos.dto.impl.OrderDto;
 import com.example.springbackendpos.entity.impl.OrderEntity;
 import com.example.springbackendpos.exception.DataPersistException;
@@ -10,6 +9,8 @@ import com.example.springbackendpos.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -28,5 +29,10 @@ public class OrderServiceIMPL implements OrderService {
         if (orderEntity == null) {
             throw new DataPersistException("Order not save");
         }
+    }
+
+    @Override
+    public List<OrderDto> getAll() {
+        return mapping.asOrderDTOList(orderDao.findAll());
     }
 }
