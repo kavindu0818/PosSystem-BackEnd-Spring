@@ -1,6 +1,4 @@
 package com.example.springbackendpos.controller;
-
-import com.example.springbackendpos.dto.impl.ItemDto;
 import com.example.springbackendpos.dto.impl.OrderDto;
 import com.example.springbackendpos.exception.DataPersistException;
 import com.example.springbackendpos.service.OrderService;
